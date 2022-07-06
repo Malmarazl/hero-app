@@ -1,0 +1,38 @@
+.logo-app {
+    width: 50px;
+    height: 50px;
+    padding-right: 10px;
+}
+
+.navbar-spacer {
+    flex: 1 1 auto;
+}
+
+.nav-bar-item {
+    margin-left: 30px;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-bar-item:hover {
+    text-decoration: underline;
+}
+.nav-bar-item:active {
+    text-decoration: underline;
+}
+.nav-bar-item:visited {
+    text-decoration: none;
+}
+
+// Search Styles
+  .search-input {
+    padding: .5rem;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    display: block;
+  }
+  
+  .search-input:focus {
+    outline: #336699 auto 1px;
+  }
