@@ -1,0 +1,25 @@
+
+<h1>Lista de héroes</h1>
+<div class="field-search">
+    <input #searchInput placeholder="Search" name="search" [(ngModel)]="searchText" autocomplete="off">
+    <!-- <button matSuffix mat-button><mat-icon >search</mat-icon></button> -->
+</div>
+<button mat-raised-button class="button-add" color="primary">Añadir héroe</button>
+
+<div class="cards-list">
+    <mat-card class="card-hero" *ngFor="let hero of heroes | filter: searchText">
+        <mat-card-header>
+            <mat-card-title>{{ hero.name }}</mat-card-title>
+            <mat-card-subtitle>{{ hero.company }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="hero.img" [alt]="hero.name">
+        <mat-card-content>
+                {{ hero.description }}
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary">Editar</button>
+            <button mat-raised-button color="primary">Borrar</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+

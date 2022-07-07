@@ -23,16 +23,3 @@
 .nav-bar-item:visited {
     text-decoration: none;
 }
-
-// Search Styles
-  .search-input {
-    padding: .5rem;
-    width: 100%;
-    max-width: 300px;
-    box-sizing: border-box;
-    display: block;
-  }
-  
-  .search-input:focus {
-    outline: #336699 auto 1px;
-  }
