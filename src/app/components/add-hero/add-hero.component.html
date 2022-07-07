@@ -1,0 +1,18 @@
+<div class="add-hero">
+    <form>
+        <div class="new-hero-param">
+            <span class="span-new-hero">Nombre:</span> 
+            <input #nameInput placeholder="Hero Name" name="name" [(ngModel)]="heroName">
+        </div>
+        <div class="new-hero-param">
+            <span class="span-new-hero">Empresa:</span> 
+            <input #companyInput placeholder="Hero Company" name="company" [(ngModel)]="heroCompany">
+        </div>
+        <div class="new-hero-param">
+            <span class="span-new-hero">Descripción:</span>
+            <input #descriptionInput placeholder="Hero Description" name="description" [(ngModel)]="heroDescription">
+        </div> 
+
+        <button mat-raised-button color="primary" (click)="addHero()">Añadir</button>
+    </form>
+</div>

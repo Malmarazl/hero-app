@@ -11,7 +11,42 @@ export class HeroesService {
 
   constructor(private http: HttpClient) { }
 
-  getHeroes(): Observable<any> {
+  getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.apiUrl);
+  }
+
+  getHero(id: number): Observable<Hero> {
+    const url = `${this.apiUrl}/${id}`;
+    
+    return this.http.get<Hero>(url);
+  }
+
+  addHero(hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>(this.apiUrl, hero);
+  }
+
+  editHero(hero: Hero): Observable<Hero> {
+    const url = `${this.apiUrl}/${hero.id}`;
+    return this.http.put<Hero>(url, hero);
+  }
+
+  deleteHero(id: number): Observable<Hero> {
+    const url = `${this.apiUrl}/${id}`;
+
+    return this.http.delete<Hero>(url);
+  }
+
+  searchHero(value: string): Hero[] {
+    let filteredHeroes: Hero[] = [];
+
+    this.http.get<Hero[]>(this.apiUrl).subscribe( heroes => {
+        filteredHeroes = heroes;
+        filteredHeroes.filter(hero => 
+          hero.name.toLocaleLowerCase() === value.toLocaleLowerCase());
+      } 
+    )
+
+    return filteredHeroes;
+
   }
 }

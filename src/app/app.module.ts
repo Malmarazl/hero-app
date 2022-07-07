@@ -1,4 +1,6 @@
-import { HttpClientModule } from '@angular/common/http';
+import { SpinnerInterceptor } from './components/shared/interceptors/spinner.interceptor';
+import { SpinnerModule } from './components/shared/spinner/spinner.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -6,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
+import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MatListModule } from '@angular/material/list';
@@ -15,10 +18,13 @@ import { MatToolbarModule}  from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HeroesService } from './services/heroes.service';
-import { FilterPipe } from './components/shared/pipes/filter.pipe';
-
+import { ModalComponent } from './components/shared/modal/modal.component';
+import { AddHeroComponent } from './components/add-hero/add-hero.component';
+import { EditHeroComponent } from './components/edit-hero/edit-hero.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +32,14 @@ import { FilterPipe } from './components/shared/pipes/filter.pipe';
     NavbarComponent,
     HomeComponent,
     HeroesComponent,
-    FilterPipe
+    HeroDetailComponent,
+    ModalComponent,
+    AddHeroComponent,
+    EditHeroComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     MatToolbarModule,
     MatListModule,
@@ -38,9 +48,13 @@ import { FilterPipe } from './components/shared/pipes/filter.pipe';
     MatFormFieldModule,
     MatCardModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    SpinnerModule
   ],
-  providers: [HeroesService],
+  entryComponents: [ModalComponent],
+  providers: [HeroesService, 
+    { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

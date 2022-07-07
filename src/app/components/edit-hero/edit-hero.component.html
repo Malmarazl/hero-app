@@ -1,0 +1,16 @@
+<div class="edit-hero">
+    <div class="edit-hero-param">
+        <span class="span-edit-hero">Nombre:</span> 
+        <input #nameInput [(ngModel)]="hero.name" placeholder="Hero name"/>
+    </div>
+    <div class="edit-hero-param">
+        <span class="span-edit-hero">Empresa:</span> 
+        <input #companyInput [(ngModel)]="hero.company" placeholder="Hero company"/>
+    </div>
+    <div class="edit-hero-param">
+        <span class="span-edit-hero">Descripción:</span> 
+        <input #descriptionInput [(ngModel)]="hero.description" placeholder="Hero description"/>
+    </div>
+    <button mat-raised-button color="primary" (click)="editHero()">Editar</button>
+</div>
+<img [src]="hero.img"/>

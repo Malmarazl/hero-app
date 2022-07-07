@@ -8,7 +8,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Running application
 [Start backend]: npm run serverAPI
-[Start app]: npm start or ng server
+[Start app]: npm start / ng server
 
 
 ## Code scaffolding
