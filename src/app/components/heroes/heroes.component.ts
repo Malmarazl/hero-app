@@ -1,7 +1,6 @@
 import { Hero } from './interfaces/hero.interface';
 import { Component, OnInit } from '@angular/core';
 import { HeroesService } from '../../services/heroes.service';
-import { tap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../shared/modal/modal.component';
 
@@ -24,19 +23,18 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     this._heroesService.getHeroes()
-    .pipe(
-      tap ((heroes: Hero[]) => this.heroes = heroes)
-    )
-    .subscribe();
+    .subscribe((heroes: Hero[]) => this.heroes = heroes);
   }
 
   searchHero(value: string): void {
-    this.heroes = this._heroesService.searchHero(value);
+    this._heroesService.getHeroes().subscribe(heroes => {
+        this.heroes = this._heroesService.searchHero(value, heroes);
+    });
   }
 
   deleteHero(id: number): void {
     this._heroesService.deleteHero(id).subscribe();
-    this.heroes = this.heroes.filter(item => item.id != id)
+    this.heroes = this.heroes.filter(hero => hero.id != id)
   }
 
   openModal(id: number): void {

@@ -36,17 +36,11 @@ export class HeroesService {
     return this.http.delete<Hero>(url);
   }
 
-  searchHero(value: string): Hero[] {
-    let filteredHeroes: Hero[] = [];
-
-    this.http.get<Hero[]>(this.apiUrl).subscribe( heroes => {
-        filteredHeroes = heroes;
-        filteredHeroes.filter(hero => 
-          hero.name.toLocaleLowerCase() === value.toLocaleLowerCase());
-      } 
-    )
-
-    return filteredHeroes;
-
+  searchHero(value: string, heroes: Hero[]): Hero[] {
+        if(!value || !heroes) {
+          return heroes;
+        } else {
+          return heroes.filter(hero => hero.name.toLowerCase().indexOf(value) !== -1);
+        }
   }
 }

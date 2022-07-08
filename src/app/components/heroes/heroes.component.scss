@@ -10,10 +10,15 @@
     margin: 50px;
 }
 
+input {
+    width: 250px;
+}
+
 .field-search {
     margin-left: 50px;
     margin-bottom: 40px;
 }
+
 .button-add {
     margin-left: 50px;
 }
@@ -30,4 +35,11 @@ h1 {
 
 .field-search {
     margin: 50px;
+}
+
+.truncate {
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

@@ -16,7 +16,7 @@
         </mat-card-header>
         <img mat-card-image [src]="hero.img" [alt]="hero.name">
         <mat-card-content>
-                {{ hero.description }}
+                <p class="truncate">{{ hero.description }}</p>
         </mat-card-content>
         <mat-card-actions>
             <button mat-raised-button color="primary" routerLink="/detail/{{hero.id}}">Ver detalle</button>
