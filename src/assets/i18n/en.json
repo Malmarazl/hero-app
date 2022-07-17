@@ -1,0 +1,32 @@
+{
+    "main" : {
+        "title": "Heroes List",
+        "button": {
+            "previous": "Previous",
+            "next": "Next",
+            "new": "New Hero",
+            "detail": "See detail",
+            "edit": "Edit",
+            "delete": "Delete"
+        }
+    },
+    "form": {
+        "name": "Name",
+        "company": "Company",
+        "description": "Description",
+        "add": "Add",
+        "edit": "edit",
+        "errors": {
+            "needName": "Name is required",
+            "needCompany": "Company name is required",
+            "needDescription": "Description is required",
+            "minName": "The name must contain at least {{ value }} characters",
+            "minDescription": "The description must contain at least  {{ value }} characters"
+        }
+    },
+    "modal": {
+        "confirmText": "Are you sure you want to eliminate the hero?",
+        "yes": "Yes",
+        "no": "No"
+    }
+}

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { HeroesService } from '../../services/heroes.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../shared/modal/modal.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-heroes',
@@ -14,12 +15,17 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[]= [];
   showAdd: Boolean = false;
   page: number = 0;
+  modalText: String = ''
 
   constructor(private _heroesService: HeroesService, 
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private translate: TranslateService) { 
+    }
 
   ngOnInit(): void {
     this.getHeroes()
+
+    this.translate.get('modal.confirmText').subscribe(value => this.modalText = value);
   }
 
   getHeroes(): void {
@@ -40,7 +46,7 @@ export class HeroesComponent implements OnInit {
 
   openModal(id: number): void {
     const dialogRef = this.dialog.open(ModalComponent, {
-      data: '¿Estás seguro de que quieres eliminar al héroe?'
+      data: this.modalText
     });
     dialogRef.afterClosed().subscribe( res => {
       if (res) this.deleteHero(id);

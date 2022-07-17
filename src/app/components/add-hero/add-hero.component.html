@@ -1,43 +1,43 @@
 <div class="add-hero">
     <form [formGroup]="formNewHero" (ngSubmit)="addHero()">
         <div class="new-hero-param">
-            <span class="span-new-hero">Nombre:</span> 
+            <span class="span-new-hero">{{ "form.name" | translate }}</span> 
             <input #nameInput appUpperCaseDirective placeholder="Hero Name" formControlName="name" type="text" 
                    [(ngModel)]="heroName" minlength="4" maxlength="15" required>
                 <div *ngIf="name?.invalid && (name?.dirty || name?.touched)"
                    class="text-alert">
                    <div *ngIf="name?.errors?.['required']">
-                      El nombre es necesario
+                    {{ "form.errors.needName" | translate }}
                     </div>
                     <div *ngIf="name?.errors?.['minlength']">
-                      El nombre debe contener almenos 4 caracteres
+                      {{ "form.errors.minName" | translate: { value: 4 } }}
                     </div>
                 </div>
         </div>
         <div class="new-hero-param">
-            <span class="span-new-hero">Empresa:</span> 
+            <span class="span-new-hero">{{ "form.company" | translate }}</span> 
             <input #companyInput placeholder="Hero Company" formControlName="company" type="text"
                    [(ngModel)]="heroCompany" required>
             <div *ngIf="company?.invalid && (company?.dirty || company?.touched)" class="text-alert">
                <div *ngIf="company?.errors?.['required']">
-                 El nombre de la compañía es necesario
+                {{ "form.errors.needCompany" | translate }}
                </div>
             </div>
         </div>
         <div class="new-hero-param">
-            <span class="span-new-hero">Descripción:</span>
+            <span class="span-new-hero">{{ "form.description" | translate }}</span>
             <input #descriptionInput placeholder="Hero Description" formControlName="description" 
             [(ngModel)]="heroDescription" required minlength="8">
             <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="text-alert">
                 <div *ngIf="description?.errors?.['required']">
-                  La descripción es necesaria
+                  {{ "form.errors.needDescription" | translate }}
                 </div>
                 <div *ngIf="description?.errors?.['minlength']">
-                  La descripción debe contener almenos 8 caracteres
+                  {{ "form.errors.minDescription" | translate: { value: 8 } }}
                 </div>
             </div>
         </div> 
 
-        <button mat-raised-button color="primary" [disabled]="!formNewHero.valid" type="submit">Añadir</button>
+        <button mat-raised-button color="primary" [disabled]="!formNewHero.valid" type="submit">{{ "form.add" | translate }}</button>
     </form>
 </div>

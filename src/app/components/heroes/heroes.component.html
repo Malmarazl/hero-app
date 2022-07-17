@@ -1,16 +1,16 @@
 <div class="header-list">
-    <h1>Lista de héroes</h1>
+    <h1> {{ "main.title" | translate }} </h1>
     <div class="field-search">
        <input #searchInput placeholder="Search" name="search">
        <button matSuffix mat-button (click)="searchHero(searchInput.value)"><mat-icon >search</mat-icon></button>
     </div>
 
     <div class="pagination-buttons">
-       <button mat-raised-button class="button-add" (click)= "prevPage()" [disabled]="this.page === 0" color="primary">Anterior</button>
-       <button mat-raised-button class="button-add" (click)= "nextPage()" [disabled]="(heroes | pagination: page).length <= 1" color="primary">Siguiente</button>
+       <button mat-raised-button class="button-add" (click)= "prevPage()" [disabled]="this.page === 0" color="primary">{{ "main.button.previous" | translate }}</button>
+       <button mat-raised-button class="button-add" (click)= "nextPage()" [disabled]="(heroes | pagination: page).length <= 1" color="primary">{{ "main.button.next" | translate }}</button>
     </div>
 
-    <button mat-raised-button class="button-add" (click)= "showAdd = !showAdd" color="primary">Nuevo héroe</button>
+    <button mat-raised-button class="button-add" (click)= "showAdd = !showAdd" color="primary">{{ "main.button.new" | translate }}</button>
     <app-add-hero *ngIf="showAdd"></app-add-hero>
 </div>
 
@@ -25,9 +25,9 @@
                 <p class="truncate">{{ hero.description }}</p>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button color="primary" routerLink="/detail/{{hero.id}}">Ver detalle</button>
-            <button mat-raised-button color="primary" routerLink="/edit/{{hero.id}}">Editar</button>
-            <button mat-raised-button color="primary" (click)="openModal(hero.id)">Borrar</button>
+            <button mat-raised-button color="primary" routerLink="/detail/{{hero.id}}">{{ "main.button.detail" | translate }}</button>
+            <button mat-raised-button color="primary" routerLink="/edit/{{hero.id}}">{{ "main.button.edit" | translate }}</button>
+            <button mat-raised-button color="primary" (click)="openModal(hero.id)">{{ "main.button.delete" | translate }}</button>
         </mat-card-actions>
     </mat-card>
 </div>

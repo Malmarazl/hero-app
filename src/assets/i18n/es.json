@@ -1,0 +1,32 @@
+{
+    "main" : {
+        "title": "Lista de héroes",
+        "button": {
+            "previous": "Anterior",
+            "next": "Siguiente",
+            "new": "Nuevo héroe",
+            "detail": "Ver detalle",
+            "edit": "Editar",
+            "delete": "Borrar"
+        }
+    },
+    "form": {
+        "name": "Nombre",
+        "company": "Empresa",
+        "description": "Descripción",
+        "add": "Añadir",
+        "edit": "Editar",
+        "errors": {
+            "needName": "El nombre es necesario",
+            "needCompany": "El nombre de la compañía es necesario",
+            "needDescription": "La descripción es necesaria",
+            "minName": "El nombre debe contener almenos {{ value }} caracteres",
+            "minDescription": "La descripción debe contener almenos {{ value }} caracteres"
+        }
+    },
+    "modal": {
+        "confirmText": "¿Seguro que quieres eliminar al héroe?",
+        "yes": "Si",
+        "no": "No"
+    }
+}

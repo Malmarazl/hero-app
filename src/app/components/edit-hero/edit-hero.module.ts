@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { UpperCaseDirectiveModule } from '../shared/directives/upper-case-directive.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [EditHeroComponent],
@@ -12,7 +13,8 @@ import { UpperCaseDirectiveModule } from '../shared/directives/upper-case-direct
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    UpperCaseDirectiveModule
+    UpperCaseDirectiveModule,
+    TranslateModule
   ],
   exports: [EditHeroComponent]
 })
