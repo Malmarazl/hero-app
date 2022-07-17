@@ -1,4 +1,4 @@
-import { Hero } from './../components/heroes/interfaces/hero.interface';
+import { Hero } from '../components/models/hero.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HeroesService {
-  private apiUrl = 'http://localhost:8080/heroes'; // change in casa you want to use other port
+  private apiUrl = 'http://localhost:8080/heroes';
 
   constructor(private http: HttpClient) { }
 

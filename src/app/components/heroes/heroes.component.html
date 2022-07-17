@@ -1,17 +1,23 @@
+<div class="header-list">
+    <h1>Lista de héroes</h1>
+    <div class="field-search">
+       <input #searchInput placeholder="Search" name="search">
+       <button matSuffix mat-button (click)="searchHero(searchInput.value)"><mat-icon >search</mat-icon></button>
+    </div>
 
-<h1>Lista de héroes</h1>
-<div class="field-search">
-    <input #searchInput placeholder="Search" name="search">
-    <button matSuffix mat-button (click)="searchHero(searchInput.value)"><mat-icon >search</mat-icon></button>
+    <div class="pagination-buttons">
+       <button mat-raised-button class="button-add" (click)= "prevPage()" [disabled]="this.page === 0" color="primary">Anterior</button>
+       <button mat-raised-button class="button-add" (click)= "nextPage()" [disabled]="(heroes | pagination: page).length <= 1" color="primary">Siguiente</button>
+    </div>
+
+    <button mat-raised-button class="button-add" (click)= "showAdd = !showAdd" color="primary">Nuevo héroe</button>
+    <app-add-hero *ngIf="showAdd"></app-add-hero>
 </div>
 
-<button mat-raised-button class="button-add" (click)= "showAdd = !showAdd" color="primary">Nuevo héroe</button>
-<app-add-hero *ngIf="showAdd"></app-add-hero>
-
 <div class="cards-list">
-    <mat-card class="card-hero" *ngFor="let hero of heroes">
+    <mat-card class="card-hero" *ngFor="let hero of heroes | pagination: page">
         <mat-card-header>
-            <mat-card-title>{{ hero.name | uppercase }}</mat-card-title>
+            <mat-card-title>{{ hero.name }}</mat-card-title>
             <mat-card-subtitle>{{ hero.company }}</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image [src]="hero.img" [alt]="hero.name">

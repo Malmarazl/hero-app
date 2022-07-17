@@ -1,6 +1,8 @@
 # HeroApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+Node version used 14.20.0.
+The application use `json-server` as a backend.
 
 ## Development server
 
@@ -9,6 +11,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ## Running application
 [Start backend]: npm run serverAPI
 [Start app]: npm start / ng server
+
+Run with Docker:
+docker compose up
 
 
 ## Code scaffolding

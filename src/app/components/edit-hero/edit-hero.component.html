@@ -1,16 +1,44 @@
 <div class="edit-hero">
-    <div class="edit-hero-param">
-        <span class="span-edit-hero">Nombre:</span> 
-        <input #nameInput [(ngModel)]="hero.name" placeholder="Hero name"/>
-    </div>
-    <div class="edit-hero-param">
-        <span class="span-edit-hero">Empresa:</span> 
-        <input #companyInput [(ngModel)]="hero.company" placeholder="Hero company"/>
-    </div>
-    <div class="edit-hero-param">
-        <span class="span-edit-hero">Descripción:</span> 
-        <input #descriptionInput [(ngModel)]="hero.description" placeholder="Hero description"/>
-    </div>
-    <button mat-raised-button color="primary" (click)="editHero()">Editar</button>
+    <form [formGroup]="formEditHero" (ngSubmit)="editHero()">
+        <div class="edit-hero-param">
+            <span class="span-edit-hero">Nombre:</span> 
+            <input #nameInput appUpperCaseDirective formControlName="name" type="text"
+                [(ngModel)]="hero.name" placeholder="Hero name" minlength="4" maxlength="15" required/>
+            <div *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+                class="text-alert">
+                <div *ngIf="name?.errors?.['required']">
+                    El nombre es necesario
+                </div>
+                <div *ngIf="name?.errors?.['minlength']">
+                    El nombre debe contener almenos 4 caracteres
+                </div>
+            </div>
+        </div>
+        <div class="edit-hero-param">
+            <span class="span-edit-hero">Empresa:</span> 
+            <input #companyInput formControlName="company" type="text" 
+                    [(ngModel)]="hero.company" placeholder="Hero company" required/>
+            <div *ngIf="company?.invalid && (company?.dirty || company?.touched)" class="text-alert">
+                <div *ngIf="company?.errors?.['required']">
+                    El nombre de la compañía es necesario
+                </div>
+            </div>
+        </div>
+        <div class="edit-hero-param">
+            <span class="span-edit-hero">Descripción:</span> 
+            <input #descriptionInput formControlName="description" 
+                    [(ngModel)]="hero.description" placeholder="Hero description" minlength="8" required/>
+            <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="text-alert">
+                <div *ngIf="description?.errors?.['required']">
+                    La descripción es necesaria
+                </div>
+                <div *ngIf="description?.errors?.['minlength']">
+                    La descripción debe contener almenos 8 caracteres
+                </div>
+            </div>
+        </div>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!formEditHero.valid" >Editar</button>
+    </form>
 </div>
+
 <img [src]="hero.img"/>

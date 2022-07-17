@@ -1,4 +1,4 @@
-import { Hero } from './interfaces/hero.interface';
+import { Hero } from '../models/hero.interface';
 import { Component, OnInit } from '@angular/core';
 import { HeroesService } from '../../services/heroes.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -13,6 +13,7 @@ export class HeroesComponent implements OnInit {
 
   heroes: Hero[]= [];
   showAdd: Boolean = false;
+  page: number = 0;
 
   constructor(private _heroesService: HeroesService, 
     public dialog: MatDialog) { }
@@ -45,5 +46,13 @@ export class HeroesComponent implements OnInit {
       if (res) this.deleteHero(id);
     }
     )
+  }
+
+  nextPage() {
+    this.page += 1;
+  }
+
+  prevPage() {
+    if (this.page > 0) this.page -= 1;
   }
 }

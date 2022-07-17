@@ -1,8 +1,9 @@
-import { Hero } from './../heroes/interfaces/hero.interface';
+import { Hero } from '../models/hero.interface';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HeroesService } from 'src/app/services/heroes.service';
 import { Router } from '@angular/router';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-hero',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 export class EditHeroComponent implements OnInit {
   hero: any = {}
   id: number = 0
+  formEditHero: FormGroup = new FormGroup('');
 
   constructor(
     private router: Router,
@@ -22,6 +24,17 @@ export class EditHeroComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.id = params['id']
     })
+
+    this.formEditHero = new FormGroup({
+      name: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4)]),
+      company: new FormControl('', [
+        Validators.required]),
+      description: new FormControl('', [
+          Validators.required,
+          Validators.minLength(8)]),
+    });
 
     this.getHero();
   }
@@ -39,5 +52,9 @@ export class EditHeroComponent implements OnInit {
       }
     );
   }
+
+  get name() { return this.formEditHero.get('name'); }
+  get company() { return this.formEditHero.get('company'); }
+  get description() { return this.formEditHero.get('description'); }
 
 }
