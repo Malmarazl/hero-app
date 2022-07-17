@@ -2,6 +2,7 @@ import { NavbarComponent } from './navbar.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 
 
@@ -9,6 +10,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   declarations: [NavbarComponent],
   imports: [
     CommonModule,
+    AppRoutingModule,
     MatToolbarModule
   ],
   exports: [NavbarComponent]

@@ -1,3 +1,5 @@
+import { HeroDetailModule } from './components/hero-detail/hero-detail.module';
+import { EditHeroModule } from './components/edit-hero/edit-hero.module';
 import { AddHeroModule } from './components/add-hero/add-hero.module';
 import { HeroesModule } from './components/heroes/heroes.module';
 import { ModalModule } from './components/shared/modal/modal.module';
@@ -7,49 +9,26 @@ import { SpinnerModule } from './components/shared/spinner/spinner.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';
-import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
-
-import { AppRoutingModule } from './app-routing.module';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule}  from '@angular/material/toolbar';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatCardModule } from '@angular/material/card';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { HeroesService } from './services/heroes.service';
+import { AppComponent } from './app.component';
 
-import { EditHeroComponent } from './components/edit-hero/edit-hero.component';
+import { HeroesService } from './services/heroes.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeroDetailComponent,
-    EditHeroComponent ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     NavbarModule,
     ModalModule,
     HeroesModule,
     AddHeroModule,
-    AppRoutingModule,
-    MatToolbarModule,
-    MatListModule,
-    MatButtonModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatCardModule,
+    EditHeroModule,
+    HeroDetailModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatDialogModule,
     SpinnerModule
   ],
   entryComponents: [],

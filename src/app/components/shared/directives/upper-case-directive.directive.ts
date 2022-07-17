@@ -3,7 +3,7 @@ import { Directive, HostListener } from '@angular/core';
 @Directive({
   selector: '[appUpperCaseDirective]'
 })
-export class UpperCaseDirectiveDirective {
+export class UpperCaseDirective {
 
   constructor() { }
 
