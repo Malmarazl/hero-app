@@ -40,7 +40,9 @@ export class HeroesService {
         if(!value || !heroes) {
           return heroes;
         } else {
-          return heroes.filter(hero => hero.name.toLowerCase().indexOf(value) !== -1);
+          return heroes.filter(hero => 
+            hero.name.toLowerCase().indexOf(value) !== -1
+          );
         }
   }
 }

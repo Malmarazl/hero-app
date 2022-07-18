@@ -40,8 +40,11 @@ export class HeroesComponent implements OnInit {
   }
 
   deleteHero(id: number): void {
-    this._heroesService.deleteHero(id).subscribe();
-    this.heroes = this.heroes.filter(hero => hero.id != id)
+    this._heroesService.deleteHero(id).subscribe(h => {
+        window.location.reload();  
+      }
+    );
+    
   }
 
   openModal(id: number): void {
