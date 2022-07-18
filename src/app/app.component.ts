@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'hero-app';
 
   constructor(private translate: TranslateService) {
+    translate.addLangs(['en', 'es']);
     translate.setDefaultLang('es');
-    translate.use('es');
   }
 }

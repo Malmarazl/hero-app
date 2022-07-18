@@ -2,8 +2,14 @@
     <img class="logo-app" alt="Hero App Logo" src="assets/img/A-64.png"/>
 
     <span>Hero App</span> 
-    <a class="nav-bar-item" routerLink="heroes">Héroes</a>
+    <a class="nav-bar-item" routerLink="heroes">{{ "navbar.heroes" | translate }}</a>
     <span class="navbar-spacer"></span>
 
+    <div class="navbar-language">
+        <select #langSelect (change)="changeLang(langSelect.value)">
+            <option value="es">ES</option>
+            <option value="en">EN</option>
+        </select>
+    </div>
 </mat-toolbar>
  

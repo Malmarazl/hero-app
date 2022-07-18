@@ -1,4 +1,7 @@
 {
+    "navbar": {
+        "heroes":"Héroes"
+    },
     "main" : {
         "title": "Lista de héroes",
         "button": {
