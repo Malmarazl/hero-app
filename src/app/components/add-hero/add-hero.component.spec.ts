@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { AddHeroComponent } from './add-hero.component';
 
@@ -8,7 +10,8 @@ describe('AddHeroComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddHeroComponent ]
+      declarations: [ AddHeroComponent ],
+      imports: [HttpClientModule, TranslateModule.forRoot()]
     })
     .compileComponents();
 

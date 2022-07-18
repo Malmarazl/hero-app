@@ -7,7 +7,7 @@
 
     <div class="pagination-buttons">
        <button mat-raised-button class="button-add" (click)= "prevPage()" [disabled]="this.page === 0" color="primary">{{ "main.button.previous" | translate }}</button>
-       <button mat-raised-button class="button-add" (click)= "nextPage()" [disabled]="(heroes | pagination: page).length <= 1" color="primary">{{ "main.button.next" | translate }}</button>
+       <button mat-raised-button class="button-add" (click)= "nextPage()" [disabled]="(heroes | pagination: page).length <= 2" color="primary">{{ "main.button.next" | translate }}</button>
     </div>
 
     <button mat-raised-button class="button-add" (click)= "showAdd = !showAdd" color="primary">{{ "main.button.new" | translate }}</button>

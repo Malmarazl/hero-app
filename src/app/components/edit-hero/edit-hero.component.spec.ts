@@ -1,6 +1,9 @@
+import { TranslateModule } from '@ngx-translate/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { EditHeroComponent } from './edit-hero.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('EditHeroComponent', () => {
   let component: EditHeroComponent;
@@ -8,7 +11,8 @@ describe('EditHeroComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditHeroComponent ]
+      declarations: [ EditHeroComponent ],
+      imports: [RouterTestingModule, HttpClientModule, TranslateModule.forRoot()]
     })
     .compileComponents();
 
