@@ -1,11 +1,11 @@
-import { ModalModule } from './../shared/modal/modal.module';
 import { HeroesService } from 'src/app/services/heroes.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HeroesComponent } from './heroes.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { TranslateModule } from '@ngx-translate/core';
-import { PaginationPipe } from '../shared/pipes/pagination.pipe';
+import { ModalModule } from 'src/app/shared/modal/modal.module';
+import { PaginationPipe } from 'src/app/shared/pipes/pagination.pipe';
 
 describe('HeroesComponent', () => {
   let component: HeroesComponent;

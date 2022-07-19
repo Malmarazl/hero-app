@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { Hero } from '../components/models/hero.interface';
+import { Hero } from '../models/hero.interface';
 
 import { HeroesService } from './heroes.service';
 

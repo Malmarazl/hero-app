@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroesService } from 'src/app/services/heroes.service';
-import { Hero } from '../models/hero.interface';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { Hero } from 'src/app/models/hero.interface';
 
 @Component({
   selector: 'app-add-hero',

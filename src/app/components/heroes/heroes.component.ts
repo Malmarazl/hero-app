@@ -1,9 +1,9 @@
-import { Hero } from '../models/hero.interface';
 import { Component, OnInit } from '@angular/core';
 import { HeroesService } from '../../services/heroes.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalComponent } from '../shared/modal/modal.component';
 import { TranslateService } from '@ngx-translate/core';
+import { Hero } from 'src/app/models/hero.interface';
+import { ModalComponent } from 'src/app/shared/modal/modal.component';
 
 @Component({
   selector: 'app-heroes',

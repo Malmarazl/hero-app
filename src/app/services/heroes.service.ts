@@ -1,7 +1,7 @@
-import { Hero } from '../components/models/hero.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Hero } from '../models/hero.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +41,7 @@ export class HeroesService {
           return heroes;
         } else {
           return heroes.filter(hero => 
-            hero.name.toLowerCase().indexOf(value) !== -1
+            hero.name.toLowerCase().includes(value.toLowerCase())
           );
         }
   }

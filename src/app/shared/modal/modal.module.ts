@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { TranslateModule } from '@ngx-translate/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -13,8 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     MatDialogModule,
     MatButtonModule,
-    TranslateModule,
-    BrowserAnimationsModule
+    TranslateModule
   ],
   entryComponents: [ModalComponent],
   exports: [ModalComponent]

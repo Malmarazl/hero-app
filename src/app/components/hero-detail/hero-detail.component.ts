@@ -1,8 +1,8 @@
-import { Hero } from '../models/hero.interface';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HeroesService } from 'src/app/services/heroes.service';
 import { tap } from 'rxjs/operators';
+import { Hero } from 'src/app/models/hero.interface';
 
 @Component({
   selector: 'app-hero-detail',

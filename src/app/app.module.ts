@@ -3,22 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EditHeroModule } from './components/edit-hero/edit-hero.module';
 import { HeroesModule } from './components/heroes/heroes.module';
-import { NavbarModule } from './components/shared/navbar/navbar.module';
-import { SpinnerModule } from './components/shared/spinner/spinner.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { SpinnerInterceptor } from './components/shared/interceptors/spinner.interceptor';
 import { HeroesService } from './services/heroes.service';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader }  from '@ngx-translate/http-loader';
+import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
+import { NavbarModule } from './shared/navbar/navbar.module';
+import { SpinnerModule } from './shared/spinner/spinner.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
+    CommonModule,
     AppRoutingModule,
+    BrowserModule,
+    BrowserAnimationsModule,
     NavbarModule,
     HeroesModule,
     HttpClientModule,
